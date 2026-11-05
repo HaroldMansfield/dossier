@@ -101,7 +101,7 @@ export function ResumeDocument({ theme, profile, paper, layout, language, render
                       ))}
                     </ul>
                   )}
-                  {role.skills.length > 0 && (
+                  {resolved.entrySkills && role.skills.length > 0 && (
                     <p className={styles.entrySkills}>
                       <span className={styles.accent}>{`${labels.skills} · `}</span>
                       {role.skills.join(", ")}
@@ -138,7 +138,7 @@ export function ResumeDocument({ theme, profile, paper, layout, language, render
                       ))}
                     </ul>
                   )}
-                  {project.skills.length > 0 && (
+                  {resolved.entrySkills && project.skills.length > 0 && (
                     <p className={styles.entrySkills}>
                       <span className={styles.accent}>{`${labels.skills} · `}</span>
                       {project.skills.join(", ")}

@@ -126,16 +126,6 @@ exports[`ResumeDocument > renders the demo profile in ATS 1`] = `
               Mentored three junior designers through their first year
             </li>
           </ul>
-          <p
-            class="_entrySkills_fa1ef7"
-          >
-            <span
-              class="_accent_fa1ef7"
-            >
-              Skills · 
-            </span>
-            Interaction design, Design systems, User research, Workshop facilitation
-          </p>
         </div>
         <div
           class="_entry_fa1ef7"
@@ -174,16 +164,6 @@ exports[`ResumeDocument > renders the demo profile in ATS 1`] = `
               Ran monthly research sessions with field researchers
             </li>
           </ul>
-          <p
-            class="_entrySkills_fa1ef7"
-          >
-            <span
-              class="_accent_fa1ef7"
-            >
-              Skills · 
-            </span>
-            Prototyping, User research, Figma
-          </p>
         </div>
         <div
           class="_entry_fa1ef7"
@@ -214,16 +194,6 @@ exports[`ResumeDocument > renders the demo profile in ATS 1`] = `
               Delivered web projects for cultural institutions and municipalities
             </li>
           </ul>
-          <p
-            class="_entrySkills_fa1ef7"
-          >
-            <span
-              class="_accent_fa1ef7"
-            >
-              Skills · 
-            </span>
-            HTML & CSS, Interaction design
-          </p>
         </div>
       </section>
       <section
@@ -270,16 +240,6 @@ exports[`ResumeDocument > renders the demo profile in ATS 1`] = `
               Maintain it with two contributors; used by design teams at several logistics startups
             </li>
           </ul>
-          <p
-            class="_entrySkills_fa1ef7"
-          >
-            <span
-              class="_accent_fa1ef7"
-            >
-              Skills · 
-            </span>
-            Design systems, Figma, HTML & CSS
-          </p>
         </div>
       </section>
       <section

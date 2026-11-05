@@ -68,6 +68,9 @@ export const BUILT_IN_THEMES: ThemeData[] = (
   ] satisfies (Omit<ThemeData, "builtIn" | StyleField> & Partial<Pick<ThemeData, StyleField>>)[]
 ).map((theme) => ({ ...THEME_STYLE_DEFAULTS, ...theme, builtIn: true }));
 
+/** The built-in theme for applicant-tracking systems. */
+export const ATS_THEME_ID = "ats";
+
 /** The page is this many units wide, whatever the paper. */
 export const PAGE_WIDTH = 640;
 
@@ -272,6 +275,8 @@ export function resolveTheme(theme: ThemeData, layout: ThemeLayout = theme.layou
     centered: !split && theme.align === ThemeAlign.CENTER,
     banner: theme.headerStyle === HeaderStyle.BANNER,
     timeline: theme.dateStyle === DateStyle.TIMELINE,
+    // The ATS theme lists skills once, in the Skills section: a skills line under every role repeats them.
+    entrySkills: theme.id !== ATS_THEME_ID,
     photo: {
       shape: theme.photoShape,
       // Only a sidebar layout has a sidebar to put it in.

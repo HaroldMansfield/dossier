@@ -20,6 +20,15 @@ describe("ResumeDocument", () => {
     expect(container.firstChild).toMatchSnapshot();
   });
 
+  it("lists skills under each role, except in the ATS theme, which lists them once", () => {
+    const { rerender } = render(<ResumeDocument theme={theme("editorial")} profile={profile} paper="A4" today={today} />);
+    const perRole = screen.queryAllByText(/^Skills ·$/).length;
+    expect(perRole).toBeGreaterThan(0);
+    rerender(<ResumeDocument theme={theme("ats")} profile={profile} paper="A4" today={today} />);
+    expect(screen.queryAllByText(/^Skills ·$/)).toHaveLength(0);
+    expect(sectionTitles()).toContain("Skills");
+  });
+
   it("puts contact details in the header of single-column layouts", () => {
     render(<ResumeDocument theme={theme("editorial")} profile={profile} paper="A4" today={today} />);
     expect(screen.getByText("jane.doe@example.com").parentElement?.textContent).toBe(
