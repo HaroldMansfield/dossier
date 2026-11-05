@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
+import { AtsPanel } from "@/components/documents/ats-panel";
 import { DocumentPreview } from "@/components/documents/document-preview";
 import { DownloadPdfButton } from "@/components/documents/download-pdf-button";
 import { ResumeDocument } from "@/components/documents/resume-document";
@@ -12,7 +13,9 @@ import { buttonClassName } from "@/components/ui/button";
 import { ConfirmDialog } from "@/components/ui/confirm-dialog";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import type { PaperSize } from "@/generated/prisma/enums";
+import { documentLabels } from "@/lib/document-labels";
 import type { ProfileData } from "@/lib/profile";
+import { resumeContent } from "@/lib/resume-content";
 import { saveFile } from "@/lib/save-file";
 import { pagesInWords } from "@/lib/settings";
 import { parseThemeFile, themeFile, themeFileName } from "@/lib/theme-file";
@@ -182,15 +185,22 @@ export function ResumeWorkspace({ profile, themes: initialThemes, usage, baseThe
                 </Link>
               </p>
             ) : (
-              maxPages !== null &&
-              pages > maxPages && (
-                <p role="note" className="rounded-card bg-warning-surface px-4 py-2.5 text-meta text-warning">
-                  Your base resume runs over {pagesInWords(maxPages)}. Tailored resumes are trimmed to fit, oldest roles first.{" "}
-                  <Link href="/settings?section=documents" className="font-medium text-warning underline underline-offset-2">
-                    Change the resume length
-                  </Link>
-                </p>
-              )
+              <>
+                {maxPages !== null && pages > maxPages && (
+                  <p role="note" className="rounded-card bg-warning-surface px-4 py-2.5 text-meta text-warning">
+                    Your base resume runs over {pagesInWords(maxPages)}. Tailored resumes are trimmed to fit, oldest roles first.{" "}
+                    <Link href="/settings?section=documents" className="font-medium text-warning underline underline-offset-2">
+                      Change the resume length
+                    </Link>
+                  </p>
+                )}
+                <AtsPanel
+                  content={resumeContent(profile, { includeReferences }, documentLabels(language))}
+                  theme={theme}
+                  pages={pages}
+                  maxPages={maxPages}
+                />
+              </>
             )
           }
         >
