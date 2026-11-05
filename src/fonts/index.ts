@@ -236,6 +236,57 @@ export const notoSansSc = localFont({
   declarations: [{ prop: "unicode-range", value: "U+3000-303F, U+3400-4DBF, U+4E00-9FFF, U+F900-FAFF, U+FF00-FFEF" }],
 });
 
+// ATS-safe fonts: free, metric-compatible stand-ins for Arial (Arimo), Calibri
+// (Carlito), Georgia (Gelasio) and Cambria (Caladea). They are what an
+// applicant-tracking guide means by "web-safe", and they set the same text
+// widths, so a PDF made with them lays out like the original.
+
+export const arimo = localFont({
+  src: [
+    { path: "./arimo/Arimo-Variable.woff2", weight: "400 700", style: "normal" },
+    { path: "./arimo/Arimo-Italic-Variable.woff2", weight: "400 700", style: "italic" },
+  ],
+  variable: "--typeface-arimo",
+  fallback: ["Arial", "Helvetica", "sans-serif"],
+  preload: false,
+});
+
+export const carlito = localFont({
+  src: [
+    { path: "./carlito/Carlito-Regular.woff2", weight: "400", style: "normal" },
+    { path: "./carlito/Carlito-Italic.woff2", weight: "400", style: "italic" },
+    { path: "./carlito/Carlito-Bold.woff2", weight: "700", style: "normal" },
+    { path: "./carlito/Carlito-BoldItalic.woff2", weight: "700", style: "italic" },
+  ],
+  variable: "--typeface-carlito",
+  fallback: ["Calibri", "Arial", "sans-serif"],
+  preload: false,
+});
+
+export const gelasio = localFont({
+  src: [
+    { path: "./gelasio/Gelasio-Variable.woff2", weight: "400 700", style: "normal" },
+    { path: "./gelasio/Gelasio-Italic-Variable.woff2", weight: "400 700", style: "italic" },
+  ],
+  variable: "--typeface-gelasio",
+  fallback: ["Georgia", "serif"],
+  adjustFontFallback: "Times New Roman",
+  preload: false,
+});
+
+export const caladea = localFont({
+  src: [
+    { path: "./caladea/Caladea-Regular.woff2", weight: "400", style: "normal" },
+    { path: "./caladea/Caladea-Italic.woff2", weight: "400", style: "italic" },
+    { path: "./caladea/Caladea-Bold.woff2", weight: "700", style: "normal" },
+    { path: "./caladea/Caladea-BoldItalic.woff2", weight: "700", style: "italic" },
+  ],
+  variable: "--typeface-caladea",
+  fallback: ["Cambria", "Georgia", "serif"],
+  adjustFontFallback: "Times New Roman",
+  preload: false,
+});
+
 /** Class names that define every --typeface-* variable; set on <html>. */
 export const fontVariables = [
   geist,
@@ -253,6 +304,10 @@ export const fontVariables = [
   workSans,
   spaceGrotesk,
   jetbrainsMono,
+  arimo,
+  carlito,
+  gelasio,
+  caladea,
   greekSerif,
   greekSans,
   plexSansArabic,

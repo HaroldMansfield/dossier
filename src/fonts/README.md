@@ -74,3 +74,16 @@ EOF'
 ```
 
 Subset first and limit the axis second: the other order fails in fontTools.
+
+## ATS-safe fonts
+
+Applicant-tracking guides recommend web-safe fonts such as Arial, Calibri, Georgia and Cambria. Those are proprietary, so these OFL fonts stand in. Each has the same character widths as its original, and the PDF embeds the font it is set in.
+
+| Folder | Family | Stands in for | Source file in [google/fonts](https://github.com/google/fonts) |
+| --- | --- | --- | --- |
+| `arimo` | Arimo | Arial, Helvetica | `ofl/arimo/Arimo[wght].ttf`, `Arimo-Italic[wght].ttf` |
+| `carlito` | Carlito | Calibri | `ofl/carlito/Carlito-{Regular,Bold,Italic,BoldItalic}.ttf` |
+| `gelasio` | Gelasio | Georgia | `ofl/gelasio/Gelasio[wght].ttf`, `Gelasio-Italic[wght].ttf` |
+| `caladea` | Caladea | Cambria | `ofl/caladea/Caladea-{Regular,Bold,Italic,BoldItalic}.ttf` |
+
+Converted to WOFF2 with fontTools on 5 November 2026, without subsetting.

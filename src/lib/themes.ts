@@ -63,6 +63,8 @@ export const BUILT_IN_THEMES: ThemeData[] = (
     { id: "folio", name: "Folio", headFont: "PLAYFAIR", bodyFont: "LORA", accent: "#1d1c1a", layout: "SIDE_HEADINGS", align: "LEFT", headingStyle: "PLAIN", density: "AIRY", photoShape: "ROUNDED", photoPosition: "HEADER_START" },
     { id: "console", name: "Console", headFont: "JETBRAINS_MONO", bodyFont: "WORK_SANS", accent: "#4a5563", layout: "SPLIT", align: "LEFT", headingStyle: "BAND", density: "COMPACT", sidebarStyle: "TINTED", photoShape: "SQUARE", photoPosition: "SIDEBAR" },
     { id: "atlas", name: "Atlas", headFont: "LIBRE_CASLON", bodyFont: "INTER", accent: "#a14a1f", layout: "SINGLE", align: "CENTER", headingStyle: "CAPS", density: "REGULAR", headerStyle: "BANNER", dateStyle: "TIMELINE", photoPosition: "ABOVE_NAME" },
+    // ATS: for applicant-tracking systems. One column, no banner, tint or timeline, a web-safe font, plain dates.
+    { id: "ats", name: "ATS", headFont: "ARIMO", bodyFont: "ARIMO", accent: "#1d1c1a", layout: "SINGLE", align: "LEFT", headingStyle: "RULE", density: "REGULAR" },
   ] satisfies (Omit<ThemeData, "builtIn" | StyleField> & Partial<Pick<ThemeData, StyleField>>)[]
 ).map((theme) => ({ ...THEME_STYLE_DEFAULTS, ...theme, builtIn: true }));
 
@@ -90,9 +92,13 @@ export const THEME_FONTS: Record<ThemeFont, { label: string; family: string; ser
   [ThemeFont.LIBRE_CASLON]: { label: "Caslon", family: "var(--typeface-libre-caslon)", serif: true },
   [ThemeFont.PLAYFAIR]: { label: "Playfair", family: "var(--typeface-playfair)", serif: true },
   [ThemeFont.FRAUNCES]: { label: "Fraunces", family: "var(--typeface-fraunces)", serif: true },
+  [ThemeFont.GELASIO]: { label: "Georgia (Gelasio)", family: "var(--typeface-gelasio)", serif: true },
+  [ThemeFont.CALADEA]: { label: "Cambria (Caladea)", family: "var(--typeface-caladea)", serif: true },
   [ThemeFont.GEIST]: { label: "Geist", family: "var(--typeface-geist)", serif: false },
   [ThemeFont.PLEX_SANS]: { label: "Plex Sans", family: "var(--typeface-plex-sans)", serif: false },
   [ThemeFont.INTER]: { label: "Inter", family: "var(--typeface-inter)", serif: false },
+  [ThemeFont.ARIMO]: { label: "Arial (Arimo)", family: "var(--typeface-arimo)", serif: false },
+  [ThemeFont.CARLITO]: { label: "Calibri (Carlito)", family: "var(--typeface-carlito)", serif: false },
   [ThemeFont.MANROPE]: { label: "Manrope", family: "var(--typeface-manrope)", serif: false },
   [ThemeFont.WORK_SANS]: { label: "Work Sans", family: "var(--typeface-work-sans)", serif: false },
   [ThemeFont.SPACE_GROTESK]: { label: "Space Grotesk", family: "var(--typeface-space-grotesk)", serif: false },

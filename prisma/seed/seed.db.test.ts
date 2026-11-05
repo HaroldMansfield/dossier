@@ -29,7 +29,7 @@ describe("built-in seed", () => {
     expect(await db.profileField.count()).toBe(0);
     expect(await db.setting.count()).toBe(0);
     expect(await db.application.count()).toBe(0);
-    expect(BUILT_IN_THEMES).toHaveLength(12);
+    expect(BUILT_IN_THEMES).toHaveLength(13);
   });
 
   it("is safe to run again: it keeps the user's data and restores changed built-in themes", async () => {
